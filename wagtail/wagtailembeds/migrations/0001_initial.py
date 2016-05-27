@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='Embed',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('url', models.URLField()),
+                ('url', models.URLField(max_length=191)),
                 ('max_width', models.SmallIntegerField(null=True, blank=True)),
                 (
                     'type',
