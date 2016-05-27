@@ -35,7 +35,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     identifier = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100, unique=True)
-    email = models.EmailField(max_length=255, blank=True)
+    email = models.EmailField(max_length=191, blank=True)
     is_staff = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     first_name = models.CharField(max_length=50, blank=True)
@@ -79,7 +79,7 @@ class EmailUserManager(BaseUserManager):
 class EmailUser(AbstractBaseUser):
     # Cant inherit from PermissionsMixin because of clashes with
     # groups/user_permissions related_names.
-    email = models.EmailField(max_length=255, unique=True)
+    email = models.EmailField(max_length=191, unique=True)
     is_staff = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     first_name = models.CharField(max_length=50, blank=True)

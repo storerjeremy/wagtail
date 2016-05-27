@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             name='SearchTest',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
+                ('title', models.CharField(max_length=191)),
                 ('content', models.TextField()),
                 ('live', models.BooleanField(default=False)),
                 ('published_date', models.DateField(null=True)),
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
             name='SearchTestChild',
             fields=[
                 ('searchtest_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='searchtests.SearchTest')),
-                ('subtitle', models.CharField(blank=True, max_length=255, null=True)),
+                ('subtitle', models.CharField(blank=True, max_length=191, null=True)),
                 ('extra_content', models.TextField()),
                 ('page', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='wagtailcore.Page')),
             ],

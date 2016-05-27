@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='slug',
             field=models.SlugField(
                 help_text='The name of the page as it will appear in URLs e.g http://domain.com/blog/[my-slug]/',
-                max_length=255
+                max_length=191
             ),
             preserve_default=True,
         ),

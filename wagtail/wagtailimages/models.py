@@ -68,7 +68,7 @@ def get_rendition_upload_to(instance, filename):
 
 @python_2_unicode_compatible
 class AbstractImage(CollectionMember, TagSearchable):
-    title = models.CharField(max_length=255, verbose_name=_('title'))
+    title = models.CharField(max_length=191, verbose_name=_('title'))
     file = models.ImageField(
         verbose_name=_('file'), upload_to=get_upload_to, width_field='width', height_field='height'
     )
@@ -375,7 +375,7 @@ class Filter(models.Model):
     """
 
     # The spec pattern is operation1-var1-var2|operation2-var1
-    spec = models.CharField(max_length=255, unique=True)
+    spec = models.CharField(max_length=191, unique=True)
 
     @cached_property
     def operations(self):
@@ -459,7 +459,7 @@ class AbstractRendition(models.Model):
     file = models.ImageField(upload_to=get_rendition_upload_to, width_field='width', height_field='height')
     width = models.IntegerField(editable=False)
     height = models.IntegerField(editable=False)
-    focal_point_key = models.CharField(max_length=255, blank=True, default='', editable=False)
+    focal_point_key = models.CharField(max_length=191, blank=True, default='', editable=False)
 
     @property
     def url(self):

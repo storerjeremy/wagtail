@@ -57,7 +57,7 @@ class AbstractLinkFields(models.Model):
 
 
 class AbstractRelatedLink(AbstractLinkFields):
-    title = models.CharField(max_length=255, help_text="Link title")
+    title = models.CharField(max_length=191, help_text="Link title")
 
     api_fields = ('title', ) + AbstractLinkFields.api_fields
 
@@ -79,7 +79,7 @@ class AbstractCarouselItem(AbstractLinkFields):
         related_name='+'
     )
     embed_url = models.URLField("Embed URL", blank=True)
-    caption = models.CharField(max_length=255, blank=True)
+    caption = models.CharField(max_length=191, blank=True)
 
     api_fields = (
         'image',
@@ -101,10 +101,10 @@ class AbstractCarouselItem(AbstractLinkFields):
 class ContactFieldsMixin(models.Model):
     telephone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(blank=True)
-    address_1 = models.CharField(max_length=255, blank=True)
-    address_2 = models.CharField(max_length=255, blank=True)
-    city = models.CharField(max_length=255, blank=True)
-    country = models.CharField(max_length=255, blank=True)
+    address_1 = models.CharField(max_length=191, blank=True)
+    address_2 = models.CharField(max_length=191, blank=True)
+    city = models.CharField(max_length=191, blank=True)
+    country = models.CharField(max_length=191, blank=True)
     post_code = models.CharField(max_length=10, blank=True)
 
     api_fields = (
@@ -385,10 +385,10 @@ class EventPage(Page):
     )
     time_from = models.TimeField("Start time", null=True, blank=True)
     time_to = models.TimeField("End time", null=True, blank=True)
-    audience = models.CharField(max_length=255, choices=AUDIENCE_CHOICES)
-    location = models.CharField(max_length=255)
+    audience = models.CharField(max_length=191, choices=AUDIENCE_CHOICES)
+    location = models.CharField(max_length=191)
     body = RichTextField(blank=True)
-    cost = models.CharField(max_length=255)
+    cost = models.CharField(max_length=191)
     signup_link = models.URLField(blank=True)
     feed_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -435,8 +435,8 @@ class EventPageRelatedLink(Orderable, AbstractRelatedLink):
 
 class EventPageSpeaker(Orderable, AbstractLinkFields):
     page = ParentalKey('EventPage', related_name='speakers')
-    first_name = models.CharField("Name", max_length=255, blank=True)
-    last_name = models.CharField("Surname", max_length=255, blank=True)
+    first_name = models.CharField("Name", max_length=191, blank=True)
+    last_name = models.CharField("Surname", max_length=191, blank=True)
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -521,8 +521,8 @@ EventIndexPage.content_panels = Page.content_panels + [
 
 class PersonPage(Page, ContactFieldsMixin):
     page_ptr = models.OneToOneField(Page, parent_link=True, related_name='+')
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=191)
+    last_name = models.CharField(max_length=191)
     intro = RichTextField(blank=True)
     biography = RichTextField(blank=True)
     image = models.ForeignKey(

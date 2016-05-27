@@ -94,7 +94,7 @@ class CarouselItem(LinkFields):
         related_name='+'
     )
     embed_url = models.URLField("Embed URL", blank=True)
-    caption = models.CharField(max_length=255, blank=True)
+    caption = models.CharField(max_length=191, blank=True)
 
     panels = [
         ImageChooserPanel('image'),
@@ -110,7 +110,7 @@ class CarouselItem(LinkFields):
 # Related links
 
 class RelatedLink(LinkFields):
-    title = models.CharField(max_length=255, help_text="Link title")
+    title = models.CharField(max_length=191, help_text="Link title")
 
     panels = [
         FieldPanel('title'),
@@ -167,8 +167,8 @@ class EventPageRelatedLink(Orderable, RelatedLink):
 
 class EventPageSpeaker(Orderable, LinkFields):
     page = ParentalKey('tests.EventPage', related_name='speakers')
-    first_name = models.CharField("Name", max_length=255, blank=True)
-    last_name = models.CharField("Surname", max_length=255, blank=True)
+    first_name = models.CharField("Name", max_length=191, blank=True)
+    last_name = models.CharField("Surname", max_length=191, blank=True)
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -199,10 +199,10 @@ class EventPage(Page):
     )
     time_from = models.TimeField("Start time", null=True, blank=True)
     time_to = models.TimeField("End time", null=True, blank=True)
-    audience = models.CharField(max_length=255, choices=EVENT_AUDIENCE_CHOICES)
-    location = models.CharField(max_length=255)
+    audience = models.CharField(max_length=191, choices=EVENT_AUDIENCE_CHOICES)
+    location = models.CharField(max_length=191)
     body = RichTextField(blank=True)
-    cost = models.CharField(max_length=255)
+    cost = models.CharField(max_length=191)
     signup_link = models.URLField(blank=True)
     feed_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -245,7 +245,7 @@ EventPage.promote_panels = [
 # Just to be able to test multi table inheritance
 class SingleEventPage(EventPage):
     excerpt = models.TextField(
-        max_length=255,
+        max_length=191,
         blank=True,
         null=True,
         help_text="Short text to describe what is this action about"
@@ -358,7 +358,7 @@ FormPage.content_panels = [
 class AdvertPlacement(models.Model):
     page = ParentalKey('wagtailcore.Page', related_name='advert_placements')
     advert = models.ForeignKey('tests.Advert', related_name='+')
-    colour = models.CharField(max_length=255)
+    colour = models.CharField(max_length=191)
 
 
 class AdvertTag(TaggedItemBase):
@@ -368,7 +368,7 @@ class AdvertTag(TaggedItemBase):
 @python_2_unicode_compatible
 class Advert(ClusterableModel):
     url = models.URLField(null=True, blank=True)
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
 
     tags = TaggableManager(through=AdvertTag, blank=True)
 
@@ -388,8 +388,8 @@ register_snippet(Advert)
 @python_2_unicode_compatible
 class AdvertWithTabbedInterface(models.Model):
     url = models.URLField(null=True, blank=True)
-    text = models.CharField(max_length=255)
-    something_else = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
+    something_else = models.CharField(max_length=191)
 
     advert_panels = [
         FieldPanel('url'),
@@ -503,8 +503,8 @@ class SnippetChooserModel(models.Model):
 
 
 class CustomImage(AbstractImage):
-    caption = models.CharField(max_length=255)
-    not_editable_field = models.CharField(max_length=255)
+    caption = models.CharField(max_length=191)
+    not_editable_field = models.CharField(max_length=191)
 
     admin_form_fields = Image.admin_form_fields + (
         'caption',
@@ -663,7 +663,7 @@ class MyCustomPage(MyBasePage):
 
 
 class ValidatedPage(Page):
-    foo = models.CharField(max_length=255)
+    foo = models.CharField(max_length=191)
 
     base_form_class = ValidatedPageForm
     content_panels = Page.content_panels + [

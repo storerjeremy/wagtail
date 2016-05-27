@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             name='Document',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Title')),
+                ('title', models.CharField(max_length=191, verbose_name='Title')),
                 ('file', models.FileField(upload_to='documents', verbose_name='File')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 (

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='redirect',
             name='old_path',
-            field=models.CharField(verbose_name='Redirect from', max_length=255, db_index=True),
+            field=models.CharField(verbose_name='Redirect from', max_length=191, db_index=True),
         ),
         migrations.AlterUniqueTogether(
             name='redirect',

@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
                 ('embed_url', models.URLField(blank=True, verbose_name='Embed URL')),
-                ('caption', models.CharField(blank=True, max_length=255)),
+                ('caption', models.CharField(blank=True, max_length=191)),
                 (
                     'image',
                     models.ForeignKey(
@@ -92,7 +92,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(
@@ -156,7 +156,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(
@@ -179,10 +179,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('telephone', models.CharField(blank=True, max_length=20)),
                 ('email', models.EmailField(blank=True, max_length=254)),
-                ('address_1', models.CharField(blank=True, max_length=255)),
-                ('address_2', models.CharField(blank=True, max_length=255)),
-                ('city', models.CharField(blank=True, max_length=255)),
-                ('country', models.CharField(blank=True, max_length=255)),
+                ('address_1', models.CharField(blank=True, max_length=191)),
+                ('address_2', models.CharField(blank=True, max_length=191)),
+                ('city', models.CharField(blank=True, max_length=191)),
+                ('country', models.CharField(blank=True, max_length=191)),
                 ('post_code', models.CharField(blank=True, max_length=10)),
                 (
                     'page_ptr',
@@ -239,7 +239,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(
@@ -283,10 +283,10 @@ class Migration(migrations.Migration):
                 ),
                 ('time_from', models.TimeField(null=True, verbose_name='Start time', blank=True)),
                 ('time_to', models.TimeField(null=True, verbose_name='End time', blank=True)),
-                ('audience', models.CharField(choices=[('public', 'Public'), ('private', 'Private')], max_length=255)),
-                ('location', models.CharField(max_length=255)),
+                ('audience', models.CharField(choices=[('public', 'Public'), ('private', 'Private')], max_length=191)),
+                ('location', models.CharField(max_length=191)),
                 ('body', wagtail.wagtailcore.fields.RichTextField(blank=True)),
-                ('cost', models.CharField(max_length=255)),
+                ('cost', models.CharField(max_length=191)),
                 ('signup_link', models.URLField(blank=True)),
                 (
                     'feed_image',
@@ -311,7 +311,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
                 ('embed_url', models.URLField(blank=True, verbose_name='Embed URL')),
-                ('caption', models.CharField(blank=True, max_length=255)),
+                ('caption', models.CharField(blank=True, max_length=191)),
                 (
                     'image',
                     models.ForeignKey(
@@ -339,7 +339,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(on_delete=models.CASCADE, to='wagtaildocs.Document', blank=True, related_name='+', null=True)
@@ -357,8 +357,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('first_name', models.CharField(blank=True, verbose_name='Name', max_length=255)),
-                ('last_name', models.CharField(blank=True, verbose_name='Surname', max_length=255)),
+                ('first_name', models.CharField(blank=True, verbose_name='Name', max_length=191)),
+                ('last_name', models.CharField(blank=True, verbose_name='Surname', max_length=191)),
                 (
                     'image',
                     models.ForeignKey(
@@ -404,7 +404,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
                 ('embed_url', models.URLField(blank=True, verbose_name='Embed URL')),
-                ('caption', models.CharField(blank=True, max_length=255)),
+                ('caption', models.CharField(blank=True, max_length=191)),
                 (
                     'image',
                     models.ForeignKey(
@@ -431,7 +431,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(on_delete=models.CASCADE, to='wagtaildocs.Document', blank=True, related_name='+', null=True)),
@@ -447,10 +447,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('telephone', models.CharField(blank=True, max_length=20)),
                 ('email', models.EmailField(blank=True, max_length=254)),
-                ('address_1', models.CharField(blank=True, max_length=255)),
-                ('address_2', models.CharField(blank=True, max_length=255)),
-                ('city', models.CharField(blank=True, max_length=255)),
-                ('country', models.CharField(blank=True, max_length=255)),
+                ('address_1', models.CharField(blank=True, max_length=191)),
+                ('address_2', models.CharField(blank=True, max_length=191)),
+                ('city', models.CharField(blank=True, max_length=191)),
+                ('country', models.CharField(blank=True, max_length=191)),
                 ('post_code', models.CharField(blank=True, max_length=10)),
                 (
                     'page_ptr',
@@ -463,8 +463,8 @@ class Migration(migrations.Migration):
                         primary_key=True
                     )
                 ),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
+                ('first_name', models.CharField(max_length=191)),
+                ('last_name', models.CharField(max_length=191)),
                 ('intro', wagtail.wagtailcore.fields.RichTextField(blank=True)),
                 ('biography', wagtail.wagtailcore.fields.RichTextField(blank=True)),
                 (
@@ -498,7 +498,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(on_delete=models.CASCADE, to='wagtaildocs.Document', blank=True, related_name='+', null=True)
@@ -545,7 +545,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(on_delete=models.CASCADE, to='wagtaildocs.Document', blank=True, related_name='+', null=True)
@@ -592,7 +592,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
                 ('embed_url', models.URLField(blank=True, verbose_name='Embed URL')),
-                ('caption', models.CharField(blank=True, max_length=255)),
+                ('caption', models.CharField(blank=True, max_length=191)),
                 (
                     'image',
                     models.ForeignKey(
@@ -622,7 +622,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('sort_order', models.IntegerField(null=True, editable=False, blank=True)),
                 ('link_external', models.URLField(blank=True, verbose_name='External link')),
-                ('title', models.CharField(help_text='Link title', max_length=255)),
+                ('title', models.CharField(help_text='Link title', max_length=191)),
                 (
                     'link_document',
                     models.ForeignKey(on_delete=models.CASCADE, to='wagtaildocs.Document', blank=True, related_name='+', null=True)

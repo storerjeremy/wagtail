@@ -17,7 +17,7 @@ class FormBuilder(object):
 
     def create_singleline_field(self, field, options):
         # TODO: This is a default value - it may need to be changed
-        options['max_length'] = 255
+        options['max_length'] = 191
         return django.forms.CharField(**options)
 
     def create_multiline_field(self, field, options):

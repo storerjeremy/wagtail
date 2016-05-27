@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             name='Filter',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
-                ('spec', models.CharField(db_index=True, max_length=255)),
+                ('spec', models.CharField(db_index=True, max_length=191)),
             ],
             options={
             },
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             name='Image',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
-                ('title', models.CharField(verbose_name='Title', max_length=255)),
+                ('title', models.CharField(verbose_name='Title', max_length=191)),
                 ('file', models.ImageField(
                     width_field='width', upload_to=wagtail.wagtailimages.models.get_upload_to,
                     verbose_name='File', height_field='height'
@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
                 ('file', models.ImageField(width_field='width', upload_to='images', height_field='height')),
                 ('width', models.IntegerField(editable=False)),
                 ('height', models.IntegerField(editable=False)),
-                ('focal_point_key', models.CharField(editable=False, max_length=255, null=True)),
+                ('focal_point_key', models.CharField(editable=False, max_length=191, null=True)),
                 ('filter', models.ForeignKey(on_delete=models.CASCADE, related_name='+', to='wagtailimages.Filter')),
                 ('image', models.ForeignKey(on_delete=models.CASCADE, related_name='renditions', to='wagtailimages.Image')),
             ],

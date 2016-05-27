@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
             name='slug',
             field=models.SlugField(
                 help_text='The name of the page as it will appear in URLs e.g http://domain.com/blog/[my-slug]/',
-                max_length=255,
+                max_length=191,
                 verbose_name='Slug'
             ),
             preserve_default=True,
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
             name='title',
             field=models.CharField(
                 help_text="The page title as you'd like it to be seen by the public",
-                max_length=255,
+                max_length=191,
                 verbose_name='Title'
             ),
             preserve_default=True,
@@ -83,13 +83,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='pageviewrestriction',
             name='password',
-            field=models.CharField(max_length=255, verbose_name='Password'),
+            field=models.CharField(max_length=191, verbose_name='Password'),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='site',
             name='hostname',
-            field=models.CharField(db_index=True, max_length=255, verbose_name='Hostname'),
+            field=models.CharField(db_index=True, max_length=191, verbose_name='Hostname'),
             preserve_default=True,
         ),
         migrations.AlterField(

@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='SearchableSnippet',
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
-                ('text', models.CharField(max_length=255)),
+                ('text', models.CharField(max_length=191)),
             ],
             bases=(wagtail.wagtailsearch.index.Indexed, models.Model),
         ),

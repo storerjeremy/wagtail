@@ -17,7 +17,7 @@ def set_page_path_collation(apps, schema_editor):
     """
     if schema_editor.connection.vendor == 'postgresql':
         schema_editor.execute("""
-            ALTER TABLE wagtailcore_page ALTER COLUMN path TYPE VARCHAR(255) COLLATE "C"
+            ALTER TABLE wagtailcore_page ALTER COLUMN path TYPE VARCHAR(191) COLLATE "C"
         """)
 
 
@@ -48,11 +48,11 @@ class Migration(migrations.Migration):
             name='Page',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('path', models.CharField(max_length=255, unique=True)),
+                ('path', models.CharField(max_length=191, unique=True)),
                 ('depth', models.PositiveIntegerField()),
                 ('numchild', models.PositiveIntegerField(default=0)),
                 ('title', models.CharField(
-                    max_length=255,
+                    max_length=191,
                     help_text="The page title as you'd like it to be seen by the public"
                 )),
                 ('slug', models.SlugField(
@@ -60,10 +60,10 @@ class Migration(migrations.Migration):
                 )),
                 ('live', models.BooleanField(default=True, editable=False)),
                 ('has_unpublished_changes', models.BooleanField(default=False, editable=False)),
-                ('url_path', models.CharField(blank=True, max_length=255, editable=False)),
+                ('url_path', models.CharField(blank=True, max_length=191, editable=False)),
                 ('seo_title', models.CharField(
                     blank=True,
-                    max_length=255,
+                    max_length=191,
                     help_text=(
                         "Optional. 'Search Engine Friendly' title."
                         " This will appear at the top of the browser window."
@@ -120,7 +120,7 @@ class Migration(migrations.Migration):
             name='PageViewRestriction',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('password', models.CharField(max_length=255)),
+                ('password', models.CharField(max_length=191)),
                 ('page', models.ForeignKey(on_delete=models.CASCADE, to='wagtailcore.Page', related_name='view_restrictions')),
             ],
             options={
@@ -131,7 +131,7 @@ class Migration(migrations.Migration):
             name='Site',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('hostname', models.CharField(max_length=255, db_index=True)),
+                ('hostname', models.CharField(max_length=191, db_index=True)),
                 ('port', models.IntegerField(
                     default=80,
                     help_text=(

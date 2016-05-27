@@ -17,7 +17,7 @@ from .forms import FancySnippetForm
 # AlphaSnippet is registered during TestSnippetOrdering
 @python_2_unicode_compatible
 class AlphaSnippet(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
 
     def __str__(self):
         return self.text
@@ -26,7 +26,7 @@ class AlphaSnippet(models.Model):
 # ZuluSnippet is registered during TestSnippetOrdering
 @python_2_unicode_compatible
 class ZuluSnippet(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
 
     def __str__(self):
         return self.text
@@ -48,7 +48,7 @@ class RegisterDecorator(models.Model):
 
 @register_snippet
 class SearchableSnippet(index.Indexed, models.Model):
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
 
     search_fields = [
         index.SearchField('text'),
@@ -60,7 +60,7 @@ class SearchableSnippet(index.Indexed, models.Model):
 
 @register_snippet
 class StandardSnippet(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=191)
 
 
 @register_snippet

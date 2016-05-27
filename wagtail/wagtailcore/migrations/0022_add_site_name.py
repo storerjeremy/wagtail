@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             model_name='site',
             name='site_name',
             field=models.CharField(
-                verbose_name='site name', null=True, blank=True, max_length=255,
+                verbose_name='site name', null=True, blank=True, max_length=191,
                 help_text="Human-readable name for the site."
             ),
         ),

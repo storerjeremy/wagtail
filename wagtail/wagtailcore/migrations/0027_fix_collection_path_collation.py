@@ -14,7 +14,7 @@ def set_collection_path_collation(apps, schema_editor):
     """
     if schema_editor.connection.vendor == 'postgresql':
         schema_editor.execute("""
-            ALTER TABLE wagtailcore_collection ALTER COLUMN path TYPE VARCHAR(255) COLLATE "C"
+            ALTER TABLE wagtailcore_collection ALTER COLUMN path TYPE VARCHAR(191) COLLATE "C"
         """)
 
 

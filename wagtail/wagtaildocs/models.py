@@ -27,7 +27,7 @@ class DocumentQuerySet(SearchableQuerySetMixin, models.QuerySet):
 
 @python_2_unicode_compatible
 class AbstractDocument(CollectionMember, TagSearchable):
-    title = models.CharField(max_length=255, verbose_name=_('title'))
+    title = models.CharField(max_length=191, verbose_name=_('title'))
     file = models.FileField(upload_to='documents', verbose_name=_('file'))
     created_at = models.DateTimeField(verbose_name=_('created at'), auto_now_add=True)
     uploaded_by_user = models.ForeignKey(

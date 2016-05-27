@@ -8,7 +8,7 @@ from wagtail.wagtailsearch import index
 
 @python_2_unicode_compatible
 class Author(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=191)
     date_of_birth = models.DateField()
 
     def __str__(self):
@@ -18,7 +18,7 @@ class Author(models.Model):
 @python_2_unicode_compatible
 class Book(models.Model, index.Indexed):
     author = models.ForeignKey(Author, on_delete=models.PROTECT)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=191)
 
     def __str__(self):
         return self.title

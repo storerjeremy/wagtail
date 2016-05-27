@@ -61,7 +61,7 @@ class TestQueryStringNormalisation(TestCase):
     def test_truncation(self):
         test_querystring = 'a' * 1000
         result = normalise_query_string(test_querystring)
-        self.assertEqual(len(result), 255)
+        self.assertEqual(len(result), 191)
 
     def test_no_truncation(self):
         test_querystring = 'a' * 10

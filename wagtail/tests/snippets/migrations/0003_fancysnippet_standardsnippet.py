@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='StandardSnippet',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField(max_length=255)),
+                ('text', models.CharField(max_length=191)),
             ],
         ),
     ]

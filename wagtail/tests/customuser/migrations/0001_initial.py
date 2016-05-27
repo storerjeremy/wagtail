@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                         verbose_name='superuser status'
                     )),
                 ('username', models.CharField(unique=True, max_length=100)),
-                ('email', models.EmailField(max_length=255, blank=True)),
+                ('email', models.EmailField(max_length=191, blank=True)),
                 ('is_staff', models.BooleanField(default=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('first_name', models.CharField(max_length=50, blank=True)),
@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
                     'last_login',
                     models.DateTimeField(null=True, verbose_name='last login', blank=True)
                 ),
-                ('email', models.EmailField(unique=True, max_length=255)),
+                ('email', models.EmailField(unique=True, max_length=191)),
                 ('is_staff', models.BooleanField(default=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('first_name', models.CharField(max_length=50, blank=True)),

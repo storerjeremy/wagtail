@@ -86,7 +86,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='page',
             name='seo_title',
-            field=models.CharField(max_length=255, blank=True, help_text="Optional. 'Search Engine Friendly' title. This will appear at the top of the browser window.", verbose_name='page title'),
+            field=models.CharField(max_length=191, blank=True, help_text="Optional. 'Search Engine Friendly' title. This will appear at the top of the browser window.", verbose_name='page title'),
         ),
         migrations.AlterField(
             model_name='page',
@@ -96,12 +96,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='page',
             name='slug',
-            field=models.SlugField(max_length=255, verbose_name='slug', help_text='The name of the page as it will appear in URLs e.g http://domain.com/blog/[my-slug]/'),
+            field=models.SlugField(max_length=191, verbose_name='slug', help_text='The name of the page as it will appear in URLs e.g http://domain.com/blog/[my-slug]/'),
         ),
         migrations.AlterField(
             model_name='page',
             name='title',
-            field=models.CharField(max_length=255, help_text="The page title as you'd like it to be seen by the public", verbose_name='title'),
+            field=models.CharField(max_length=191, help_text="The page title as you'd like it to be seen by the public", verbose_name='title'),
         ),
         migrations.AlterField(
             model_name='pagerevision',
@@ -141,12 +141,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='pageviewrestriction',
             name='password',
-            field=models.CharField(max_length=255, verbose_name='password'),
+            field=models.CharField(max_length=191, verbose_name='password'),
         ),
         migrations.AlterField(
             model_name='site',
             name='hostname',
-            field=models.CharField(max_length=255, db_index=True, verbose_name='hostname'),
+            field=models.CharField(max_length=191, db_index=True, verbose_name='hostname'),
         ),
         migrations.AlterField(
             model_name='site',

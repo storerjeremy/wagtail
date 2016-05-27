@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 
 import string
 
-MAX_QUERY_STRING_LENGTH = 255
+MAX_QUERY_STRING_LENGTH = 191
 
 
 def normalise_query_string(query_string):

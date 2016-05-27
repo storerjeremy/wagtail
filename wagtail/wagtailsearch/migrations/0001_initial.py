@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='Query',
             fields=[
                 ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
-                ('query_string', models.CharField(unique=True, max_length=255)),
+                ('query_string', models.CharField(unique=True, max_length=191)),
             ],
             options={
             },

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='AlphaSnippet',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
-                ('text', models.CharField(max_length=255)),
+                ('text', models.CharField(max_length=191)),
             ],
             options={
             },
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
             name='ZuluSnippet',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
-                ('text', models.CharField(max_length=255)),
+                ('text', models.CharField(max_length=191)),
             ],
             options={
             },

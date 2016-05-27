@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='page',
             name='url_path',
-            field=models.CharField(verbose_name='URL path', max_length=255, editable=False, blank=True),
+            field=models.CharField(verbose_name='URL path', max_length=191, editable=False, blank=True),
         ),
         migrations.AlterField(
             model_name='pagerevision',

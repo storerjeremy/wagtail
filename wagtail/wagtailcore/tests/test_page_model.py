@@ -1028,16 +1028,16 @@ class TestIssue756(TestCase):
 
 class TestIssue1216(TestCase):
     """
-    Test that url paths greater than 255 characters are supported
+    Test that url paths greater than 191 characters are supported
     """
     fixtures = ['test.json']
 
-    def test_url_path_can_exceed_255_characters(self):
+    def test_url_path_can_exceed_191_characters(self):
         event_index = Page.objects.get(url_path='/home/events/')
         christmas_event = EventPage.objects.get(url_path='/home/events/christmas/')
 
         # Change the christmas_event slug first - this way, we test that the process for
-        # updating child url paths also handles >255 character paths correctly
+        # updating child url paths also handles >191 character paths correctly
         new_christmas_slug = "christmas-%s-christmas" % ("0123456789" * 20)
         christmas_event.slug = new_christmas_slug
         christmas_event.save_revision().publish()

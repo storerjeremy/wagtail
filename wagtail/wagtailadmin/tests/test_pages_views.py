@@ -809,7 +809,7 @@ class TestPageCreation(TestCase, WagtailTestUtils):
 
         # Check that a form error was raised
         self.assertEqual(response.status_code, 200)
-        self.assertFormError(response, 'form', 'slug', "Ensure this value has at most 255 characters (it has 287).")
+        self.assertFormError(response, 'form', 'slug', "Ensure this value has at most 191 characters (it has 287).")
 
 
 class TestPageEdit(TestCase, WagtailTestUtils):

@@ -7,7 +7,7 @@ from wagtail.wagtailsearch import index
 
 
 class SearchTest(models.Model, index.Indexed):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=191)
     content = models.TextField()
     live = models.BooleanField(default=False)
     published_date = models.DateField(null=True)
@@ -56,7 +56,7 @@ class SearchTest(models.Model, index.Indexed):
 
 
 class SearchTestChild(SearchTest):
-    subtitle = models.CharField(max_length=255, null=True, blank=True)
+    subtitle = models.CharField(max_length=191, null=True, blank=True)
     extra_content = models.TextField()
     page = models.ForeignKey('wagtailcore.Page', null=True, blank=True)
 

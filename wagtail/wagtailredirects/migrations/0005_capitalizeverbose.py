@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='redirect',
             name='old_path',
-            field=models.CharField(max_length=255, db_index=True, verbose_name='redirect from'),
+            field=models.CharField(max_length=191, db_index=True, verbose_name='redirect from'),
         ),
         migrations.AlterField(
             model_name='redirect',

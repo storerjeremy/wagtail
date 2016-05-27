@@ -63,7 +63,7 @@ class AbstractFormField(Orderable):
 
     label = models.CharField(
         verbose_name=_('label'),
-        max_length=255,
+        max_length=191,
         help_text=_('The label of the form field')
     )
     field_type = models.CharField(verbose_name=_('field type'), max_length=16, choices=FORM_FIELD_CHOICES)
@@ -76,11 +76,11 @@ class AbstractFormField(Orderable):
     )
     default_value = models.CharField(
         verbose_name=_('default value'),
-        max_length=255,
+        max_length=191,
         blank=True,
         help_text=_('Default value. Comma separated values supported for checkboxes.')
     )
-    help_text = models.CharField(verbose_name=_('help text'), max_length=255, blank=True)
+    help_text = models.CharField(verbose_name=_('help text'), max_length=191, blank=True)
 
     @property
     def clean_name(self):
@@ -211,11 +211,11 @@ class AbstractEmailForm(AbstractForm):
     """
 
     to_address = models.CharField(
-        verbose_name=_('to address'), max_length=255, blank=True,
+        verbose_name=_('to address'), max_length=191, blank=True,
         help_text=_("Optional - form submissions will be emailed to this address")
     )
-    from_address = models.CharField(verbose_name=_('from address'), max_length=255, blank=True)
-    subject = models.CharField(verbose_name=_('subject'), max_length=255, blank=True)
+    from_address = models.CharField(verbose_name=_('from address'), max_length=191, blank=True)
+    subject = models.CharField(verbose_name=_('subject'), max_length=191, blank=True)
 
     def process_form_submission(self, form):
         super(AbstractEmailForm, self).process_form_submission(form)
